@@ -1472,13 +1472,13 @@ namespace UABESharp
     }
 
     [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-    public unsafe delegate ulong AssetsFileReaderDelegate(ulong pos, ulong count, byte[] pBuf, int par);
+    public unsafe delegate ulong AssetsFileReaderDelegate(ulong pos, ulong count, global::System.IntPtr pBuf, int par);
 
     [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
     public unsafe delegate void AssetsFileVerifyLoggerDelegate(sbyte* message);
 
     [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-    public unsafe delegate ulong AssetsFileWriterDelegate(ulong pos, ulong count, byte[] pBuf, int par);
+    public unsafe delegate ulong AssetsFileWriterDelegate(ulong pos, ulong count, global::System.IntPtr pBuf, int par);
 
     [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
     public unsafe delegate void CbFreeMemoryResourceDelegate(global::System.IntPtr pResource);
@@ -1707,7 +1707,7 @@ namespace UABESharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?MakeAssetModifierFromMemory@@YAPAVAssetsReplacer@@K_KHGPAXIP6AX1@Z@Z")]
-            internal static extern global::System.IntPtr MakeAssetModifierFromMemory(uint fileID, ulong pathID, int classID, ushort monoScriptIndex, byte[] buffer, uint size, global::System.IntPtr freeResourceCallback);
+            internal static extern global::System.IntPtr MakeAssetModifierFromMemory(uint fileID, ulong pathID, int classID, ushort monoScriptIndex, global::System.IntPtr buffer, uint size, global::System.IntPtr freeResourceCallback);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -1830,7 +1830,7 @@ namespace UABESharp
             return __result0;
         }
 
-        public static global::UABESharp.AssetsReplacer MakeAssetModifierFromMemory(uint fileID, ulong pathID, int classID, ushort monoScriptIndex, byte[] buffer, uint size, global::UABESharp.CbFreeMemoryResourceDelegate freeResourceCallback)
+        public static global::UABESharp.AssetsReplacer MakeAssetModifierFromMemory(uint fileID, ulong pathID, int classID, ushort monoScriptIndex, global::System.IntPtr buffer, uint size, global::UABESharp.CbFreeMemoryResourceDelegate freeResourceCallback)
         {
             var __arg6 = freeResourceCallback == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(freeResourceCallback);
             var __ret = __Internal.MakeAssetModifierFromMemory(fileID, pathID, classID, monoScriptIndex, buffer, size, __arg6);
@@ -3285,12 +3285,12 @@ namespace UABESharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
                 EntryPoint="?GetFileName@AssetFile@@QAEPADPADIH@Z")]
-            internal static extern byte[] GetFileName(global::System.IntPtr instance, byte[] outbuf, uint outbufLen, int classId);
+            internal static extern sbyte* GetFileName(global::System.IntPtr instance, sbyte* outbuf, uint outbufLen, int classId);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
                 EntryPoint="?GetFileData@AssetFile@@QAEPAEXZ")]
-            internal static extern byte[] GetFileData(global::System.IntPtr instance);
+            internal static extern byte* GetFileData(global::System.IntPtr instance);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
@@ -3368,7 +3368,7 @@ namespace UABESharp
             __Instance = IntPtr.Zero;
         }
 
-        public byte[] GetFileName(byte[] outbuf, uint outbufLen, int classId)
+        public sbyte* GetFileName(sbyte* outbuf, uint outbufLen, int classId)
         {
             var __ret = __Internal.GetFileName((__Instance + __PointerAdjustment), outbuf, outbufLen, classId);
             return __ret;
@@ -3411,7 +3411,7 @@ namespace UABESharp
             }
         }
 
-        public byte[] FileData
+        public byte* FileData
         {
             get
             {
@@ -6490,12 +6490,12 @@ namespace UABESharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?AssetsReaderFromSplitFile@@YA_K_K0PAXJ@Z")]
-            internal static extern ulong AssetsReaderFromSplitFile(ulong pos, ulong count, byte[] pBuf, int par);
+            internal static extern ulong AssetsReaderFromSplitFile(ulong pos, ulong count, global::System.IntPtr pBuf, int par);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?AssetsReaderFromFile@@YA_K_K0PAXJ@Z")]
-            internal static extern ulong AssetsReaderFromFile(ulong pos, ulong count, byte[] pBuf, int par);
+            internal static extern ulong AssetsReaderFromFile(ulong pos, ulong count, global::System.IntPtr pBuf, int par);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -6520,7 +6520,7 @@ namespace UABESharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?AssetsReaderFromMemory@@YA_K_K0PAXJ@Z")]
-            internal static extern ulong AssetsReaderFromMemory(ulong pos, ulong count, byte[] pBuf, int par);
+            internal static extern ulong AssetsReaderFromMemory(ulong pos, ulong count, global::System.IntPtr pBuf, int par);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -6535,7 +6535,7 @@ namespace UABESharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?PartialAssetsFileReader@@YA_K_K0PAXJ@Z")]
-            internal static extern ulong PartialAssetsFileReader(ulong pos, ulong count, byte[]  pBuf, int par);
+            internal static extern ulong PartialAssetsFileReader(ulong pos, ulong count, global::System.IntPtr pBuf, int par);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -6550,12 +6550,12 @@ namespace UABESharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?AssetsWriterToFile@@YA_K_K0PBXJ@Z")]
-            internal static extern ulong AssetsWriterToFile(ulong pos, ulong count, byte[] pBuf, int par);
+            internal static extern ulong AssetsWriterToFile(ulong pos, ulong count, global::System.IntPtr pBuf, int par);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?Create_AssetsWriterToMemory@@YAJPAXI@Z")]
-            internal static extern int CreateAssetsWriterToMemory(byte[] buf, uint bufLen);
+            internal static extern int CreateAssetsWriterToMemory(global::System.IntPtr buf, uint bufLen);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -6580,12 +6580,12 @@ namespace UABESharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?AssetsWriterToMemory@@YA_K_K0PBXJ@Z")]
-            internal static extern ulong AssetsWriterToMemory(ulong pos, ulong count, byte[]  pBuf, int par);
+            internal static extern ulong AssetsWriterToMemory(ulong pos, ulong count, global::System.IntPtr pBuf, int par);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?AssetsWriterOffset@@YA_K_K0PBXJ@Z")]
-            internal static extern ulong AssetsWriterOffset(ulong pos, ulong count, byte[] pBuf, int par);
+            internal static extern ulong AssetsWriterOffset(ulong pos, ulong count, global::System.IntPtr pBuf, int par);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -6610,13 +6610,13 @@ namespace UABESharp
             __Internal.FreeAssetsReaderFromSplitFile(lParam);
         }
 
-        public static ulong AssetsReaderFromSplitFile(ulong pos, ulong count, byte[] pBuf, int par)
+        public static ulong AssetsReaderFromSplitFile(ulong pos, ulong count, global::System.IntPtr pBuf, int par)
         {
             var __ret = __Internal.AssetsReaderFromSplitFile(pos, count, pBuf, par);
             return __ret;
         }
 
-        public static ulong AssetsReaderFromFile(ulong pos, ulong count, byte[] pBuf, int par)
+        public static ulong AssetsReaderFromFile(ulong pos, ulong count, global::System.IntPtr pBuf, int par)
         {
             var __ret = __Internal.AssetsReaderFromFile(pos, count, pBuf, par);
             return __ret;
@@ -6643,7 +6643,7 @@ namespace UABESharp
             __Internal.FreeAssetsReaderFromMemory(lParam, freeBuf);
         }
 
-        public static ulong AssetsReaderFromMemory(ulong pos, ulong count, byte[] pBuf, int par)
+        public static ulong AssetsReaderFromMemory(ulong pos, ulong count, global::System.IntPtr pBuf, int par)
         {
             var __ret = __Internal.AssetsReaderFromMemory(pos, count, pBuf, par);
             return __ret;
@@ -6668,7 +6668,7 @@ namespace UABESharp
             }
         }
 
-        public static ulong PartialAssetsFileReader(ulong pos, ulong count, byte[] pBuf, int par)
+        public static ulong PartialAssetsFileReader(ulong pos, ulong count, global::System.IntPtr pBuf, int par)
         {
             var __ret = __Internal.PartialAssetsFileReader(pos, count, pBuf, par);
             return __ret;
@@ -6690,13 +6690,13 @@ namespace UABESharp
             }
         }
 
-        public static ulong AssetsWriterToFile(ulong pos, ulong count, byte[] pBuf, int par)
+        public static ulong AssetsWriterToFile(ulong pos, ulong count, global::System.IntPtr pBuf, int par)
         {
             var __ret = __Internal.AssetsWriterToFile(pos, count, pBuf, par);
             return __ret;
         }
 
-        public static int CreateAssetsWriterToMemory(byte[] buf, uint bufLen)
+        public static int CreateAssetsWriterToMemory(global::System.IntPtr buf, uint bufLen)
         {
             var __ret = __Internal.CreateAssetsWriterToMemory(buf, bufLen);
             return __ret;
@@ -6732,13 +6732,13 @@ namespace UABESharp
             __Internal.FreeAssetsWriterToMemoryDynMem(p);
         }
 
-        public static ulong AssetsWriterToMemory(ulong pos, ulong count, byte[] pBuf, int par)
+        public static ulong AssetsWriterToMemory(ulong pos, ulong count, global::System.IntPtr pBuf, int par)
         {
             var __ret = __Internal.AssetsWriterToMemory(pos, count, pBuf, par);
             return __ret;
         }
 
-        public static ulong AssetsWriterOffset(ulong pos, ulong count, byte[] pBuf, int par)
+        public static ulong AssetsWriterOffset(ulong pos, ulong count, global::System.IntPtr pBuf, int par)
         {
             var __ret = __Internal.AssetsWriterOffset(pos, count, pBuf, par);
             return __ret;
@@ -9610,7 +9610,7 @@ namespace UABESharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?AssetsBundle_AssetsFileReader@@YA_K_K0PAXJ@Z")]
-            internal static extern ulong AssetsBundleAssetsFileReader(ulong pos, ulong count, byte[] pBuf, int par);
+            internal static extern ulong AssetsBundleAssetsFileReader(ulong pos, ulong count, global::System.IntPtr pBuf, int par);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -9618,7 +9618,7 @@ namespace UABESharp
             internal static extern void FreeAssetsBundleFileReader(int* pLPar, global::System.IntPtr pReader);
         }
 
-        public static ulong AssetsBundleAssetsFileReader(ulong pos, ulong count, byte[] pBuf, int par)
+        public static ulong AssetsBundleAssetsFileReader(ulong pos, ulong count, global::System.IntPtr pBuf, int par)
         {
             var __ret = __Internal.AssetsBundleAssetsFileReader(pos, count, pBuf, par);
             return __ret;
@@ -11705,7 +11705,7 @@ namespace UABESharp
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
                 EntryPoint="?WriteBundleFile@AssetBundleAsset@@QAE_NPAXHPAH@Z")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool WriteBundleFile(global::System.IntPtr instance, byte[] buffer, int bufferLen, int* size);
+            internal static extern bool WriteBundleFile(global::System.IntPtr instance, global::System.IntPtr buffer, int bufferLen, int* size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
@@ -11837,7 +11837,7 @@ namespace UABESharp
             __Internal.FlushChanges((__Instance + __PointerAdjustment));
         }
 
-        public bool WriteBundleFile(byte[] buffer, int bufferLen, ref int size)
+        public bool WriteBundleFile(global::System.IntPtr buffer, int bufferLen, ref int size)
         {
             fixed (int* __refParamPtr2 = &size)
             {
@@ -12890,13 +12890,13 @@ namespace UABESharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
                 EntryPoint="?Read@ResourceManagerFile@@QAEXPAXHPAHH_N@Z")]
-            internal static extern void Read(global::System.IntPtr instance, byte[] data, int dataLen, int* filePos, int assetsVersion, bool bigEndian);
+            internal static extern void Read(global::System.IntPtr instance, global::System.IntPtr data, int dataLen, int* filePos, int assetsVersion, bool bigEndian);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
                 EntryPoint="?Write@ResourceManagerFile@@QAE_NPAXHPAH@Z")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool Write(global::System.IntPtr instance, byte[] buffer, int bufferLen, int* size);
+            internal static extern bool Write(global::System.IntPtr instance, global::System.IntPtr buffer, int bufferLen, int* size);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
@@ -12998,7 +12998,7 @@ namespace UABESharp
             __Instance = IntPtr.Zero;
         }
 
-        public void Read(byte[] data, int dataLen, ref int filePos, int assetsVersion, bool bigEndian)
+        public void Read(global::System.IntPtr data, int dataLen, ref int filePos, int assetsVersion, bool bigEndian)
         {
             fixed (int* __refParamPtr2 = &filePos)
             {
@@ -13007,7 +13007,7 @@ namespace UABESharp
             }
         }
 
-        public bool Write(byte[] buffer, int bufferLen, ref int size)
+        public bool Write(global::System.IntPtr buffer, int bufferLen, ref int size)
         {
             fixed (int* __refParamPtr2 = &size)
             {
@@ -13848,7 +13848,7 @@ namespace UABESharp
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?GetTextureData@@YA_NPAUTextureFile@@PAX@Z")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool GetTextureData(global::System.IntPtr pTex, byte[] pOutBuf);
+            internal static extern bool GetTextureData(global::System.IntPtr pTex, global::System.IntPtr pOutBuf);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -13864,7 +13864,7 @@ namespace UABESharp
             [DllImport("AssetsTools", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?MakeTextureData@@YA_NPAUTextureFile@@PAX_NH@Z")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool MakeTextureData(global::System.IntPtr pTex, byte[] pRGBA32Buf, bool rotate180, int compressQuality);
+            internal static extern bool MakeTextureData(global::System.IntPtr pTex, global::System.IntPtr pRGBA32Buf, bool rotate180, int compressQuality);
         }
 
         public static bool ReadTextureFile(global::UABESharp.TextureFile pOutTex, global::UABESharp.AssetTypeValueField pBaseField)
@@ -13884,7 +13884,7 @@ namespace UABESharp
             return __ret;
         }
 
-        public static bool GetTextureData(global::UABESharp.TextureFile pTex, byte[] pOutBuf)
+        public static bool GetTextureData(global::UABESharp.TextureFile pTex, global::System.IntPtr pOutBuf)
         {
             var __arg0 = ReferenceEquals(pTex, null) ? global::System.IntPtr.Zero : pTex.__Instance;
             var __ret = __Internal.GetTextureData(__arg0, pOutBuf);
@@ -13904,7 +13904,7 @@ namespace UABESharp
             return __ret;
         }
 
-        public static bool MakeTextureData(global::UABESharp.TextureFile pTex, byte[] pRGBA32Buf, bool rotate180, int compressQuality)
+        public static bool MakeTextureData(global::UABESharp.TextureFile pTex, global::System.IntPtr pRGBA32Buf, bool rotate180, int compressQuality)
         {
             var __arg0 = ReferenceEquals(pTex, null) ? global::System.IntPtr.Zero : pTex.__Instance;
             var __ret = __Internal.MakeTextureData(__arg0, pRGBA32Buf, rotate180, compressQuality);
