@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using UABESharp;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace UABESharpTester
 {
@@ -19,7 +20,7 @@ namespace UABESharpTester
             {
                 AssetFileInfoEx Asset = assetsFileTable.GetAssetInfo((ulong)i);             
                 if (Asset == null) continue;
-                Console.WriteLine(Asset.Name);
+                Console.WriteLine(Asset.NameString);
             }
         }
     }

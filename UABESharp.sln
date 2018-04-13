@@ -10,6 +10,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UABESharpTester", "UABEShar
 		{F23FA58B-B8B9-4FA6-AC67-99C5F867B00B} = {F23FA58B-B8B9-4FA6-AC67-99C5F867B00B}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UABESharpFixer", "UABESharpFixer\UABESharpFixer.csproj", "{54608044-DAAF-4449-BE58-77AF7032D18B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F23FA58B-B8B9-4FA6-AC67-99C5F867B00B} = {F23FA58B-B8B9-4FA6-AC67-99C5F867B00B}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +29,10 @@ Global
 		{A3833A72-0BEB-4990-A077-15286502E139}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3833A72-0BEB-4990-A077-15286502E139}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3833A72-0BEB-4990-A077-15286502E139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54608044-DAAF-4449-BE58-77AF7032D18B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54608044-DAAF-4449-BE58-77AF7032D18B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54608044-DAAF-4449-BE58-77AF7032D18B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54608044-DAAF-4449-BE58-77AF7032D18B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
